@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,12 +99,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>client_addr
 : <a class="el" href="structdata__s.html#a51ad65b735ac28716f75a66677dec9bb">data_s</a>
 </li>
+<li>data
+: <a class="el" href="structjmp__s.html#af1c1a7d71a67030fa8f147c8e0cb8290">jmp_s</a>
+</li>
+<li>data_len
+: <a class="el" href="structjmp__hd__s.html#a8c26c653e413e3954d8b04c8161f5349">jmp_hd_s</a>
+</li>
 <li>fd
 : <a class="el" href="structserver__s.html#a6129acbc6b313f77efeb488754f559ec">server_s</a>
 , <a class="el" href="structclient__s.html#a9babf0c4dea4b555e6b87a47f4ca98cd">client_s</a>
 </li>
 <li>func
 : <a class="el" href="structjpool__work__s.html#ab4b175d459e42b292a6b5c30fd00a64a">jpool_work_s</a>
+</li>
+<li>hd
+: <a class="el" href="structjmp__s.html#a82f1aed1e0d7986a040631e2364b40c9">jmp_s</a>
 </li>
 <li>jpool
 : <a class="el" href="structserver__s.html#ac45d9f57c1cf8b4841843284d319072b">server_s</a>
@@ -117,6 +126,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>seq_id
 : <a class="el" href="structclient__s.html#aa10e2d632839fa347fd9835f8a41a694">client_s</a>
+, <a class="el" href="structjmp__hd__s.html#a1fc7b7d49b194711f9618be92bb270c4">jmp_hd_s</a>
 </li>
 <li>server_addr
 : <a class="el" href="structclient__s.html#a4cb8f28435762b205424d16ea39dcab3">client_s</a>

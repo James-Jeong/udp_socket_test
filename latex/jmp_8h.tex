@@ -1,0 +1,242 @@
+\hypertarget{jmp_8h}{\section{P\-R\-O\-T\-O\-C\-O\-L/jmp.h File Reference}
+\label{jmp_8h}\index{P\-R\-O\-T\-O\-C\-O\-L/jmp.\-h@{P\-R\-O\-T\-O\-C\-O\-L/jmp.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\-h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structjmp__hd__s}{jmp\-\_\-hd\-\_\-s}
+\item 
+struct \hyperlink{structjmp__s}{jmp\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{jmp_8h_acc6fb0babd2cfc4457b2433668556464}{\-\_\-\-\_\-\-J\-M\-P\-\_\-\-H\-\_\-\-\_\-}
+\item 
+\#define \hyperlink{jmp_8h_ab377b2c7e1ef521373a74f4200644495}{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}~1024
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned short \hyperlink{jmp_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}
+\item 
+typedef struct \hyperlink{structjmp__hd__s}{jmp\-\_\-hd\-\_\-s} \hyperlink{jmp_8h_ad5c6757f7d197aa24bf93762abec9ebf}{jmp\-\_\-hd\-\_\-t}
+\item 
+typedef struct \hyperlink{structjmp__s}{jmp\-\_\-s} \hyperlink{jmp_8h_aca4355b06b248b8d533e7ef1fdb55bec}{jmp\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structjmp__t}{jmp\-\_\-t} $\ast$ \hyperlink{jmp_8h_aecd3c68ff5dfec237d84f49f8ff19860}{jmp\-\_\-init} ()
+\begin{DoxyCompactList}\small\item\em 프로토콜 메시지 객체를 생성하고 초기화하기 위한 함수 \end{DoxyCompactList}\item 
+void \hyperlink{jmp_8h_a715cf2e44591ce9ad6c35a9e89532443}{jmp\-\_\-destroy} (\hyperlink{structjmp__t}{jmp\-\_\-t} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em 프로토콜 메시지 객체를 삭제하기 위한 함수 \end{DoxyCompactList}\item 
+int \hyperlink{jmp_8h_aaeb025f4f66542bce5196db45fc42051}{jmp\-\_\-get\-\_\-data\-\_\-len} (\hyperlink{structjmp__t}{jmp\-\_\-t} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em 프로토콜 메시지 바디의 데이터 길이를 구하는 함수 \end{DoxyCompactList}\item 
+int \hyperlink{jmp_8h_af1b0906c755e7e24747dd22d38f92fcb}{jmp\-\_\-get\-\_\-data\-\_\-size} ()
+\item 
+char $\ast$ \hyperlink{jmp_8h_a9b203f64c32ba069bada6d2822c92013}{jmp\-\_\-get\-\_\-data} (\hyperlink{structjmp__t}{jmp\-\_\-t} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em 프로토콜 메시지 바디의 데이터를 구하는 함수 \end{DoxyCompactList}\item 
+int \hyperlink{jmp_8h_a6b867d3d68bf09746c53b23dc0c8099a}{jmp\-\_\-set\-\_\-msg} (\hyperlink{structjmp__t}{jmp\-\_\-t} $\ast$msg, uint32\-\_\-t seq\-\_\-id, char $\ast$data)
+\begin{DoxyCompactList}\small\item\em 프로토콜 메시지의 헤더와 바디를 지정하는 함수 \end{DoxyCompactList}\item 
+void \hyperlink{jmp_8h_ab60c3b6e5096f0419158e82b4bd34946}{jmp\-\_\-print\-\_\-msg} (\hyperlink{structjmp__t}{jmp\-\_\-t} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em 프로토콜 메시지 전체를 출력하는 함수 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{jmp_8h_acc6fb0babd2cfc4457b2433668556464}{\index{jmp.\-h@{jmp.\-h}!\-\_\-\-\_\-\-J\-M\-P\-\_\-\-H\-\_\-\-\_\-@{\-\_\-\-\_\-\-J\-M\-P\-\_\-\-H\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-\-J\-M\-P\-\_\-\-H\-\_\-\-\_\-@{\-\_\-\-\_\-\-J\-M\-P\-\_\-\-H\-\_\-\-\_\-}!jmp.h@{jmp.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-J\-M\-P\-\_\-\-H\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-J\-M\-P\-\_\-\-H\-\_\-\-\_\-}}\label{jmp_8h_acc6fb0babd2cfc4457b2433668556464}
+
+
+Definition at line 4 of file jmp.\-h.
+
+\hypertarget{jmp_8h_ab377b2c7e1ef521373a74f4200644495}{\index{jmp.\-h@{jmp.\-h}!D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N@{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}}
+\index{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N@{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}!jmp.h@{jmp.\-h}}
+\subsubsection[{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N~1024}}\label{jmp_8h_ab377b2c7e1ef521373a74f4200644495}
+
+
+Definition at line 12 of file jmp.\-h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{jmp_8h_ad5c6757f7d197aa24bf93762abec9ebf}{\index{jmp.\-h@{jmp.\-h}!jmp\-\_\-hd\-\_\-t@{jmp\-\_\-hd\-\_\-t}}
+\index{jmp\-\_\-hd\-\_\-t@{jmp\-\_\-hd\-\_\-t}!jmp.h@{jmp.\-h}}
+\subsubsection[{jmp\-\_\-hd\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf jmp\-\_\-hd\-\_\-s} {\bf jmp\-\_\-hd\-\_\-t}}}\label{jmp_8h_ad5c6757f7d197aa24bf93762abec9ebf}
+
+
+Definition at line 19 of file jmp.\-h.
+
+\hypertarget{jmp_8h_aca4355b06b248b8d533e7ef1fdb55bec}{\index{jmp.\-h@{jmp.\-h}!jmp\-\_\-t@{jmp\-\_\-t}}
+\index{jmp\-\_\-t@{jmp\-\_\-t}!jmp.h@{jmp.\-h}}
+\subsubsection[{jmp\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf jmp\-\_\-s} {\bf jmp\-\_\-t}}}\label{jmp_8h_aca4355b06b248b8d533e7ef1fdb55bec}
+
+
+Definition at line 29 of file jmp.\-h.
+
+\hypertarget{jmp_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{\index{jmp.\-h@{jmp.\-h}!ushort@{ushort}}
+\index{ushort@{ushort}!jmp.h@{jmp.\-h}}
+\subsubsection[{ushort}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned short {\bf ushort}}}\label{jmp_8h_ab95f123a6c9bcfee6a343170ef8c5f69}
+
+
+Definition at line 15 of file jmp.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{jmp_8h_a715cf2e44591ce9ad6c35a9e89532443}{\index{jmp.\-h@{jmp.\-h}!jmp\-\_\-destroy@{jmp\-\_\-destroy}}
+\index{jmp\-\_\-destroy@{jmp\-\_\-destroy}!jmp.h@{jmp.\-h}}
+\subsubsection[{jmp\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void jmp\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf jmp\-\_\-t} $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}}\label{jmp_8h_a715cf2e44591ce9ad6c35a9e89532443}
+
+
+프로토콜 메시지 객체를 삭제하기 위한 함수 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & 삭제할 프로토콜 객체 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 20 of file jmp.\-c.
+
+\hypertarget{jmp_8h_a9b203f64c32ba069bada6d2822c92013}{\index{jmp.\-h@{jmp.\-h}!jmp\-\_\-get\-\_\-data@{jmp\-\_\-get\-\_\-data}}
+\index{jmp\-\_\-get\-\_\-data@{jmp\-\_\-get\-\_\-data}!jmp.h@{jmp.\-h}}
+\subsubsection[{jmp\-\_\-get\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ jmp\-\_\-get\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf jmp\-\_\-t} $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}}\label{jmp_8h_a9b203f64c32ba069bada6d2822c92013}
+
+
+프로토콜 메시지 바디의 데이터를 구하는 함수 
+
+\begin{DoxyReturn}{Returns}
+메시지 바디의 데이터(문자열) 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & 소유한 데이터를 알고자하는 메시지 객체 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file jmp.\-c.
+
+\hypertarget{jmp_8h_aaeb025f4f66542bce5196db45fc42051}{\index{jmp.\-h@{jmp.\-h}!jmp\-\_\-get\-\_\-data\-\_\-len@{jmp\-\_\-get\-\_\-data\-\_\-len}}
+\index{jmp\-\_\-get\-\_\-data\-\_\-len@{jmp\-\_\-get\-\_\-data\-\_\-len}!jmp.h@{jmp.\-h}}
+\subsubsection[{jmp\-\_\-get\-\_\-data\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}int jmp\-\_\-get\-\_\-data\-\_\-len (
+\begin{DoxyParamCaption}
+\item[{{\bf jmp\-\_\-t} $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}}\label{jmp_8h_aaeb025f4f66542bce5196db45fc42051}
+
+
+프로토콜 메시지 바디의 데이터 길이를 구하는 함수 
+
+\begin{DoxyReturn}{Returns}
+메시지 바디의 데이터 길이 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & 소유한 데이터 길이를 알고자하는 메시지 객체 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 31 of file jmp.\-c.
+
+\hypertarget{jmp_8h_af1b0906c755e7e24747dd22d38f92fcb}{\index{jmp.\-h@{jmp.\-h}!jmp\-\_\-get\-\_\-data\-\_\-size@{jmp\-\_\-get\-\_\-data\-\_\-size}}
+\index{jmp\-\_\-get\-\_\-data\-\_\-size@{jmp\-\_\-get\-\_\-data\-\_\-size}!jmp.h@{jmp.\-h}}
+\subsubsection[{jmp\-\_\-get\-\_\-data\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}int jmp\-\_\-get\-\_\-data\-\_\-size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{jmp_8h_af1b0906c755e7e24747dd22d38f92fcb}
+
+
+Definition at line 41 of file jmp.\-c.
+
+\hypertarget{jmp_8h_aecd3c68ff5dfec237d84f49f8ff19860}{\index{jmp.\-h@{jmp.\-h}!jmp\-\_\-init@{jmp\-\_\-init}}
+\index{jmp\-\_\-init@{jmp\-\_\-init}!jmp.h@{jmp.\-h}}
+\subsubsection[{jmp\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jmp\-\_\-t}$\ast$ jmp\-\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{jmp_8h_aecd3c68ff5dfec237d84f49f8ff19860}
+
+
+프로토콜 메시지 객체를 생성하고 초기화하기 위한 함수 
+
+\begin{DoxyReturn}{Returns}
+프로토콜 메시지 객체 
+\end{DoxyReturn}
+
+
+Definition at line 8 of file jmp.\-c.
+
+\hypertarget{jmp_8h_ab60c3b6e5096f0419158e82b4bd34946}{\index{jmp.\-h@{jmp.\-h}!jmp\-\_\-print\-\_\-msg@{jmp\-\_\-print\-\_\-msg}}
+\index{jmp\-\_\-print\-\_\-msg@{jmp\-\_\-print\-\_\-msg}!jmp.h@{jmp.\-h}}
+\subsubsection[{jmp\-\_\-print\-\_\-msg}]{\setlength{\rightskip}{0pt plus 5cm}void jmp\-\_\-print\-\_\-msg (
+\begin{DoxyParamCaption}
+\item[{{\bf jmp\-\_\-t} $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}}\label{jmp_8h_ab60c3b6e5096f0419158e82b4bd34946}
+
+
+프로토콜 메시지 전체를 출력하는 함수 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & 출력하려는 메시지의 객체 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 83 of file jmp.\-c.
+
+\hypertarget{jmp_8h_a6b867d3d68bf09746c53b23dc0c8099a}{\index{jmp.\-h@{jmp.\-h}!jmp\-\_\-set\-\_\-msg@{jmp\-\_\-set\-\_\-msg}}
+\index{jmp\-\_\-set\-\_\-msg@{jmp\-\_\-set\-\_\-msg}!jmp.h@{jmp.\-h}}
+\subsubsection[{jmp\-\_\-set\-\_\-msg}]{\setlength{\rightskip}{0pt plus 5cm}int jmp\-\_\-set\-\_\-msg (
+\begin{DoxyParamCaption}
+\item[{{\bf jmp\-\_\-t} $\ast$}]{msg, }
+\item[{uint32\-\_\-t}]{seq\-\_\-id, }
+\item[{char $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{jmp_8h_a6b867d3d68bf09746c53b23dc0c8099a}
+
+
+프로토콜 메시지의 헤더와 바디를 지정하는 함수 
+
+\begin{DoxyReturn}{Returns}
+성공 여부(1\-:success, -\/1\-:fail) 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & 설정하려고 하는 메시지 객체 \\
+\hline
+{\em seq\-\_\-id} & 설정하려고 하는 메시지 헤더의 sequence identifier \\
+\hline
+{\em data} & 설정하려고 하는 메시지 바디 데이터 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 63 of file jmp.\-c.
+

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['seq_5fid',['seq_id',['../structclient__s.html#aa10e2d632839fa347fd9835f8a41a694',1,'client_s']]],
+  ['seq_5fid',['seq_id',['../structclient__s.html#aa10e2d632839fa347fd9835f8a41a694',1,'client_s::seq_id()'],['../structjmp__hd__s.html#a1fc7b7d49b194711f9618be92bb270c4',1,'jmp_hd_s::seq_id()']]],
   ['server_2ec',['server.c',['../server_8c.html',1,'']]],
   ['server_2eh',['server.h',['../server_8h.html',1,'']]],
   ['server_5faddr',['server_addr',['../structclient__s.html#a4cb8f28435762b205424d16ea39dcab3',1,'client_s']]],

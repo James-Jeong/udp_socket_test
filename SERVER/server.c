@@ -149,7 +149,10 @@ void server_conn( server_t *server){
 
 			data_t data;
 			data_init( &data, server, client_addr, ( void*)( read_buf));
-			jpool_add_work( server->jpool, server_process_data, &data);
+			if( (jpool_add_work( server->jpool, server_process_data, &data)) == false){
+				printf("	| ! Server : Fail to add the work (server_process_data)\n\n");
+				return ;
+			}
 		}
 	}
 }

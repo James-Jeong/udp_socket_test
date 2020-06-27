@@ -133,13 +133,27 @@ jpool_t* jpool_init( size_t num){
 	}
 
 	jpool->thread_cnt = num;
-
-	pthread_mutex_init( &( jpool->work_mutex), NULL);
-	pthread_cond_init( &( jpool->work_cond), NULL);
-	pthread_cond_init( &( jpool->working_cond), NULL);
-
 	jpool->work_first = NULL;
 	jpool->work_last = NULL;
+
+	if( (pthread_mutex_init( &( jpool->work_mutex), NULL)) != 0){
+		free( jpool);
+		printf("	| ! Fail to init work_mutex\n");
+		return NULL;
+	}
+	if( (pthread_cond_init( &( jpool->work_cond), NULL)) != 0){
+		pthread_mutex_destroy( &( jpool->work_mutex));
+		free( jpool);
+		printf("	| ! Fail to init work_cond\n");
+		return NULL;
+	}
+	if( (pthread_cond_init( &( jpool->working_cond), NULL)) != 0){
+		pthread_mutex_destroy( &( jpool->work_mutex));
+		pthread_cond_destroy( &( jpool->work_cond));
+		free( jpool);
+		printf("	| ! Fail to init working_cond\n");
+		return NULL;
+	}
 
 	for( i = 0; i < num; i++){
 		if( ( pthread_create( &thread, NULL, jpool_worker, jpool)) != 0){
@@ -163,19 +177,19 @@ jpool_t* jpool_init( size_t num){
  * @param jpool 삭제될 thread pool 객체
  */
 void jpool_destroy( jpool_t *jpool){
-	jpool_work_t *work;
-	jpool_work_t *work2;
-
 	if(jpool == NULL){
 		return;
 	}
 
+	jpool_work_t *work;
+	jpool_work_t *work_temp;
+
 	pthread_mutex_lock( &( jpool->work_mutex));
 	work = jpool->work_first;
 	while( work != NULL) {
-		work2 = work->next;
+		work_temp = work->next;
 		jpool_work_destroy( work);
-		work = work2;
+		work = work_temp;
 	}
 
 	jpool->stop = true;
@@ -200,13 +214,11 @@ void jpool_destroy( jpool_t *jpool){
  * @param arg 실행할 함수에 사용될 매개변수
  */
 bool jpool_add_work( jpool_t *jpool, func_pointer func, void *arg){
-	jpool_work_t *work;
-
 	if( jpool == NULL){
 		return false;
 	}
 
-	work = jpool_work_init( func, arg);
+	jpool_work_t *work = jpool_work_init( func, arg);
 	if( work == NULL){
 		return false;
 	}

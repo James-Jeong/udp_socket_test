@@ -3,11 +3,11 @@
 /**
  * @mainpage Project : UDP Socket test
  * @section intro 소개
- *    - 소개 : 차후 계획한 개인 프로젝트를 위해 미리 제작 
+ *    - 차후 계획한 개인 프로젝트를 위해 미리 제작 
  * @section  CreateInfo 작성 정보
  *    - 작성자 :   정동욱
  *    - 작성일 :   2020/06/27
- * @subsection exec >> 실행 방법 및 인수 설명
+ * @subsection exec 실행 방법 및 인수 설명
  *    - 실행 방법\n
  *      서버       : SERVER/server
  *      클라이언트 : CLIENT/client

@@ -1,0 +1,207 @@
+\hypertarget{jpool_8c}{\section{S\-E\-R\-V\-E\-R/jpool.c File Reference}
+\label{jpool_8c}\index{S\-E\-R\-V\-E\-R/jpool.\-c@{S\-E\-R\-V\-E\-R/jpool.\-c}}
+}
+{\ttfamily \#include \char`\"{}jpool.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structjpool__work__t}{jpool\-\_\-work\-\_\-t} $\ast$ \hyperlink{jpool_8c_afed0400226a8a7a8a3116dff3bde3837}{jpool\-\_\-work\-\_\-init} (\hyperlink{jpool_8h_a7bc066fc6575720b392e900b1333b9c8}{func\-\_\-pointer} func, void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em thread pool 에 사용될 work 를 등록하는 함수 \end{DoxyCompactList}\item 
+static void \hyperlink{jpool_8c_ab012ea9efff7bb6b43f098d425f7dce9}{jpool\-\_\-work\-\_\-destroy} (\hyperlink{structjpool__work__t}{jpool\-\_\-work\-\_\-t} $\ast$work)
+\begin{DoxyCompactList}\small\item\em thread pool 에 사용될 work 를 삭제하는 함수 \end{DoxyCompactList}\item 
+static \hyperlink{structjpool__work__t}{jpool\-\_\-work\-\_\-t} $\ast$ \hyperlink{jpool_8c_aa07de12bec51722cc6143d6e82b2c94c}{jpool\-\_\-work\-\_\-get} (\hyperlink{structjpool__t}{jpool\-\_\-t} $\ast$jpool)
+\begin{DoxyCompactList}\small\item\em thread pool 에 등록된 work 를 가져오는 함수 \end{DoxyCompactList}\item 
+static void $\ast$ \hyperlink{jpool_8c_a37a772722b88565eee164d0a22fb2a5d}{jpool\-\_\-worker} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em work 에 등록된 함수를 실행하는 함수 \end{DoxyCompactList}\item 
+\hyperlink{structjpool__t}{jpool\-\_\-t} $\ast$ \hyperlink{jpool_8c_a7136d9bf0bde0228af50abcd670cf9a4}{jpool\-\_\-init} (size\-\_\-t num)
+\begin{DoxyCompactList}\small\item\em thread pool 객체를 생성하고 초기화하는 함수 \end{DoxyCompactList}\item 
+void \hyperlink{jpool_8c_a114dca27a60d7156898853b1d6af243f}{jpool\-\_\-destroy} (\hyperlink{structjpool__t}{jpool\-\_\-t} $\ast$jpool)
+\begin{DoxyCompactList}\small\item\em thread pool 객체를 삭제하는 함수 \end{DoxyCompactList}\item 
+bool \hyperlink{jpool_8c_a1ff4d7840bc52931268f5ac2c18af8c2}{jpool\-\_\-add\-\_\-work} (\hyperlink{structjpool__t}{jpool\-\_\-t} $\ast$jpool, \hyperlink{jpool_8h_a7bc066fc6575720b392e900b1333b9c8}{func\-\_\-pointer} func, void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em thread pool 객체에 특정 함수를 실행할 work 를 등록하는 함수 \end{DoxyCompactList}\item 
+void \hyperlink{jpool_8c_a9d996261dc0e47f6fd5cf078cc958fbc}{jpool\-\_\-wait} (\hyperlink{structjpool__t}{jpool\-\_\-t} $\ast$jpool)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{jpool_8c_a1ff4d7840bc52931268f5ac2c18af8c2}{\index{jpool.\-c@{jpool.\-c}!jpool\-\_\-add\-\_\-work@{jpool\-\_\-add\-\_\-work}}
+\index{jpool\-\_\-add\-\_\-work@{jpool\-\_\-add\-\_\-work}!jpool.c@{jpool.\-c}}
+\subsubsection[{jpool\-\_\-add\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}bool jpool\-\_\-add\-\_\-work (
+\begin{DoxyParamCaption}
+\item[{{\bf jpool\-\_\-t} $\ast$}]{jpool, }
+\item[{{\bf func\-\_\-pointer}}]{func, }
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}}\label{jpool_8c_a1ff4d7840bc52931268f5ac2c18af8c2}
+
+
+thread pool 객체에 특정 함수를 실행할 work 를 등록하는 함수 
+
+\begin{DoxyReturn}{Returns}
+실패 여부 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em jpool} & work 를 추가할 thread pool 객체 \\
+\hline
+{\em func} & 실행할 함수 \\
+\hline
+{\em arg} & 실행할 함수에 사용될 매개변수 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 202 of file jpool.\-c.
+
+\hypertarget{jpool_8c_a114dca27a60d7156898853b1d6af243f}{\index{jpool.\-c@{jpool.\-c}!jpool\-\_\-destroy@{jpool\-\_\-destroy}}
+\index{jpool\-\_\-destroy@{jpool\-\_\-destroy}!jpool.c@{jpool.\-c}}
+\subsubsection[{jpool\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void jpool\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf jpool\-\_\-t} $\ast$}]{jpool}
+\end{DoxyParamCaption}
+)}}\label{jpool_8c_a114dca27a60d7156898853b1d6af243f}
+
+
+thread pool 객체를 삭제하는 함수 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em jpool} & 삭제될 thread pool 객체 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 165 of file jpool.\-c.
+
+\hypertarget{jpool_8c_a7136d9bf0bde0228af50abcd670cf9a4}{\index{jpool.\-c@{jpool.\-c}!jpool\-\_\-init@{jpool\-\_\-init}}
+\index{jpool\-\_\-init@{jpool\-\_\-init}!jpool.c@{jpool.\-c}}
+\subsubsection[{jpool\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jpool\-\_\-t} $\ast$ jpool\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{num}
+\end{DoxyParamCaption}
+)}}\label{jpool_8c_a7136d9bf0bde0228af50abcd670cf9a4}
+
+
+thread pool 객체를 생성하고 초기화하는 함수 
+
+\begin{DoxyReturn}{Returns}
+생성된 thread pool 객체 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em num} & 생성될 쓰레드 개수 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 120 of file jpool.\-c.
+
+\hypertarget{jpool_8c_a9d996261dc0e47f6fd5cf078cc958fbc}{\index{jpool.\-c@{jpool.\-c}!jpool\-\_\-wait@{jpool\-\_\-wait}}
+\index{jpool\-\_\-wait@{jpool\-\_\-wait}!jpool.c@{jpool.\-c}}
+\subsubsection[{jpool\-\_\-wait}]{\setlength{\rightskip}{0pt plus 5cm}void jpool\-\_\-wait (
+\begin{DoxyParamCaption}
+\item[{{\bf jpool\-\_\-t} $\ast$}]{jpool}
+\end{DoxyParamCaption}
+)}}\label{jpool_8c_a9d996261dc0e47f6fd5cf078cc958fbc}
+
+
+Definition at line 237 of file jpool.\-c.
+
+\hypertarget{jpool_8c_ab012ea9efff7bb6b43f098d425f7dce9}{\index{jpool.\-c@{jpool.\-c}!jpool\-\_\-work\-\_\-destroy@{jpool\-\_\-work\-\_\-destroy}}
+\index{jpool\-\_\-work\-\_\-destroy@{jpool\-\_\-work\-\_\-destroy}!jpool.c@{jpool.\-c}}
+\subsubsection[{jpool\-\_\-work\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}static void jpool\-\_\-work\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf jpool\-\_\-work\-\_\-t} $\ast$}]{work}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{jpool_8c_ab012ea9efff7bb6b43f098d425f7dce9}
+
+
+thread pool 에 사용될 work 를 삭제하는 함수 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em work} & 삭제할 work \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file jpool.\-c.
+
+\hypertarget{jpool_8c_aa07de12bec51722cc6143d6e82b2c94c}{\index{jpool.\-c@{jpool.\-c}!jpool\-\_\-work\-\_\-get@{jpool\-\_\-work\-\_\-get}}
+\index{jpool\-\_\-work\-\_\-get@{jpool\-\_\-work\-\_\-get}!jpool.c@{jpool.\-c}}
+\subsubsection[{jpool\-\_\-work\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf jpool\-\_\-work\-\_\-t} $\ast$ jpool\-\_\-work\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{{\bf jpool\-\_\-t} $\ast$}]{jpool}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{jpool_8c_aa07de12bec51722cc6143d6e82b2c94c}
+
+
+thread pool 에 등록된 work 를 가져오는 함수 
+
+\begin{DoxyReturn}{Returns}
+등록된 work 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em jpool} & work 를 가져올 쓰레드 풀 객체 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 42 of file jpool.\-c.
+
+\hypertarget{jpool_8c_afed0400226a8a7a8a3116dff3bde3837}{\index{jpool.\-c@{jpool.\-c}!jpool\-\_\-work\-\_\-init@{jpool\-\_\-work\-\_\-init}}
+\index{jpool\-\_\-work\-\_\-init@{jpool\-\_\-work\-\_\-init}!jpool.c@{jpool.\-c}}
+\subsubsection[{jpool\-\_\-work\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf jpool\-\_\-work\-\_\-t} $\ast$ jpool\-\_\-work\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf func\-\_\-pointer}}]{func, }
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{jpool_8c_afed0400226a8a7a8a3116dff3bde3837}
+
+
+thread pool 에 사용될 work 를 등록하는 함수 
+
+\begin{DoxyReturn}{Returns}
+등록된 work 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em func} & 실행할 함수 \\
+\hline
+{\em arg} & 실행할 함수에 사용될 매개변수 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 10 of file jpool.\-c.
+
+\hypertarget{jpool_8c_a37a772722b88565eee164d0a22fb2a5d}{\index{jpool.\-c@{jpool.\-c}!jpool\-\_\-worker@{jpool\-\_\-worker}}
+\index{jpool\-\_\-worker@{jpool\-\_\-worker}!jpool.c@{jpool.\-c}}
+\subsubsection[{jpool\-\_\-worker}]{\setlength{\rightskip}{0pt plus 5cm}static void $\ast$ jpool\-\_\-worker (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{jpool_8c_a37a772722b88565eee164d0a22fb2a5d}
+
+
+work 에 등록된 함수를 실행하는 함수 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & work 가진 함수에 사용될 매개변수 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file jpool.\-c.
+

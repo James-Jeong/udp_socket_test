@@ -1,0 +1,129 @@
+\hypertarget{structjpool__s}{\section{jpool\-\_\-s Struct Reference}
+\label{structjpool__s}\index{jpool\-\_\-s@{jpool\-\_\-s}}
+}
+
+
+{\ttfamily \#include $<$jpool.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structjpool__work__t}{jpool\-\_\-work\-\_\-t} $\ast$ \hyperlink{structjpool__s_aa2625fbb89fc87f0cb418649d26ea4c0}{work\-\_\-first}
+\begin{DoxyCompactList}\small\item\em 첫번째 work \end{DoxyCompactList}\item 
+\hyperlink{structjpool__work__t}{jpool\-\_\-work\-\_\-t} $\ast$ \hyperlink{structjpool__s_a12a7e1581bce36aadf5834fb10740ffb}{work\-\_\-last}
+\begin{DoxyCompactList}\small\item\em 마지막 work \end{DoxyCompactList}\item 
+pthread\-\_\-mutex\-\_\-t \hyperlink{structjpool__s_a726c4fc88db49d0ed13ac37252fafc57}{work\-\_\-mutex}
+\begin{DoxyCompactList}\small\item\em work critical 방지 변수 \end{DoxyCompactList}\item 
+pthread\-\_\-cond\-\_\-t \hyperlink{structjpool__s_ac76152a46045dbba3e0a33e8b7e3e71b}{work\-\_\-cond}
+\begin{DoxyCompactList}\small\item\em work 존재 유무를 위한 조건 변수 \end{DoxyCompactList}\item 
+pthread\-\_\-cond\-\_\-t \hyperlink{structjpool__s_a947ecfa20ce4f5b9c63906232637361f}{working\-\_\-cond}
+\begin{DoxyCompactList}\small\item\em worker 의 동작 유무를 위한 조건 변수 \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{structjpool__s_a914d89a44ced20367584327bcd6c0f76}{working\-\_\-cnt}
+\begin{DoxyCompactList}\small\item\em 현재 동작 중인 work 개수 \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{structjpool__s_a123842c9941946bd2e9e9f6c930022c6}{thread\-\_\-cnt}
+\begin{DoxyCompactList}\small\item\em 현재 동작 중인 thread 개수 \end{DoxyCompactList}\item 
+bool \hyperlink{structjpool__s_acb5a4cd9d4c371aeac1fb508b1e866dd}{stop}
+\begin{DoxyCompactList}\small\item\em 동작 중인 쓰레드를 모두 중지시키기 위한 flag \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 28 of file jpool.\-h.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structjpool__s_acb5a4cd9d4c371aeac1fb508b1e866dd}{\index{jpool\-\_\-s@{jpool\-\_\-s}!stop@{stop}}
+\index{stop@{stop}!jpool_s@{jpool\-\_\-s}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}bool jpool\-\_\-s\-::stop}}\label{structjpool__s_acb5a4cd9d4c371aeac1fb508b1e866dd}
+
+
+동작 중인 쓰레드를 모두 중지시키기 위한 flag 
+
+
+
+Definition at line 44 of file jpool.\-h.
+
+\hypertarget{structjpool__s_a123842c9941946bd2e9e9f6c930022c6}{\index{jpool\-\_\-s@{jpool\-\_\-s}!thread\-\_\-cnt@{thread\-\_\-cnt}}
+\index{thread\-\_\-cnt@{thread\-\_\-cnt}!jpool_s@{jpool\-\_\-s}}
+\subsubsection[{thread\-\_\-cnt}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t jpool\-\_\-s\-::thread\-\_\-cnt}}\label{structjpool__s_a123842c9941946bd2e9e9f6c930022c6}
+
+
+현재 동작 중인 thread 개수 
+
+
+
+Definition at line 42 of file jpool.\-h.
+
+\hypertarget{structjpool__s_ac76152a46045dbba3e0a33e8b7e3e71b}{\index{jpool\-\_\-s@{jpool\-\_\-s}!work\-\_\-cond@{work\-\_\-cond}}
+\index{work\-\_\-cond@{work\-\_\-cond}!jpool_s@{jpool\-\_\-s}}
+\subsubsection[{work\-\_\-cond}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-cond\-\_\-t jpool\-\_\-s\-::work\-\_\-cond}}\label{structjpool__s_ac76152a46045dbba3e0a33e8b7e3e71b}
+
+
+work 존재 유무를 위한 조건 변수 
+
+
+
+Definition at line 36 of file jpool.\-h.
+
+\hypertarget{structjpool__s_aa2625fbb89fc87f0cb418649d26ea4c0}{\index{jpool\-\_\-s@{jpool\-\_\-s}!work\-\_\-first@{work\-\_\-first}}
+\index{work\-\_\-first@{work\-\_\-first}!jpool_s@{jpool\-\_\-s}}
+\subsubsection[{work\-\_\-first}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jpool\-\_\-work\-\_\-t}$\ast$ jpool\-\_\-s\-::work\-\_\-first}}\label{structjpool__s_aa2625fbb89fc87f0cb418649d26ea4c0}
+
+
+첫번째 work 
+
+
+
+Definition at line 30 of file jpool.\-h.
+
+\hypertarget{structjpool__s_a12a7e1581bce36aadf5834fb10740ffb}{\index{jpool\-\_\-s@{jpool\-\_\-s}!work\-\_\-last@{work\-\_\-last}}
+\index{work\-\_\-last@{work\-\_\-last}!jpool_s@{jpool\-\_\-s}}
+\subsubsection[{work\-\_\-last}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jpool\-\_\-work\-\_\-t}$\ast$ jpool\-\_\-s\-::work\-\_\-last}}\label{structjpool__s_a12a7e1581bce36aadf5834fb10740ffb}
+
+
+마지막 work 
+
+
+
+Definition at line 32 of file jpool.\-h.
+
+\hypertarget{structjpool__s_a726c4fc88db49d0ed13ac37252fafc57}{\index{jpool\-\_\-s@{jpool\-\_\-s}!work\-\_\-mutex@{work\-\_\-mutex}}
+\index{work\-\_\-mutex@{work\-\_\-mutex}!jpool_s@{jpool\-\_\-s}}
+\subsubsection[{work\-\_\-mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-mutex\-\_\-t jpool\-\_\-s\-::work\-\_\-mutex}}\label{structjpool__s_a726c4fc88db49d0ed13ac37252fafc57}
+
+
+work critical 방지 변수 
+
+
+
+Definition at line 34 of file jpool.\-h.
+
+\hypertarget{structjpool__s_a914d89a44ced20367584327bcd6c0f76}{\index{jpool\-\_\-s@{jpool\-\_\-s}!working\-\_\-cnt@{working\-\_\-cnt}}
+\index{working\-\_\-cnt@{working\-\_\-cnt}!jpool_s@{jpool\-\_\-s}}
+\subsubsection[{working\-\_\-cnt}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t jpool\-\_\-s\-::working\-\_\-cnt}}\label{structjpool__s_a914d89a44ced20367584327bcd6c0f76}
+
+
+현재 동작 중인 work 개수 
+
+
+
+Definition at line 40 of file jpool.\-h.
+
+\hypertarget{structjpool__s_a947ecfa20ce4f5b9c63906232637361f}{\index{jpool\-\_\-s@{jpool\-\_\-s}!working\-\_\-cond@{working\-\_\-cond}}
+\index{working\-\_\-cond@{working\-\_\-cond}!jpool_s@{jpool\-\_\-s}}
+\subsubsection[{working\-\_\-cond}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-cond\-\_\-t jpool\-\_\-s\-::working\-\_\-cond}}\label{structjpool__s_a947ecfa20ce4f5b9c63906232637361f}
+
+
+worker 의 동작 유무를 위한 조건 변수 
+
+
+
+Definition at line 38 of file jpool.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+S\-E\-R\-V\-E\-R/\hyperlink{jpool_8h}{jpool.\-h}\end{DoxyCompactItemize}

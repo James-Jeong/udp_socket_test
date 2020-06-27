@@ -1,0 +1,144 @@
+\hypertarget{client_8h}{\section{C\-L\-I\-E\-N\-T/client.h File Reference}
+\label{client_8h}\index{C\-L\-I\-E\-N\-T/client.\-h@{C\-L\-I\-E\-N\-T/client.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\-h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structclient__s}{client\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{client_8h_ab377b2c7e1ef521373a74f4200644495}{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}~1024
+\item 
+\#define \hyperlink{client_8h_ac42367fe5c999ec6650de83e9d72fe8c}{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T}~5060
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structclient__s}{client\-\_\-s} \hyperlink{client_8h_a7bfebc8e763f36d1870198931d6b5eb1}{client\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structclient__t}{client\-\_\-t} $\ast$ \hyperlink{client_8h_af21475138048fb4203362940473e97ee}{client\-\_\-init} ()
+\begin{DoxyCompactList}\small\item\em server 객체를 생성하고 초기화하는 함수 \end{DoxyCompactList}\item 
+void \hyperlink{client_8h_a80c8423080211619ad3d20311b5ced50}{client\-\_\-process\-\_\-data} (\hyperlink{structclient__t}{client\-\_\-t} $\ast$client)
+\begin{DoxyCompactList}\small\item\em server 로 요청을 보내서 응답을 받는 함수 \end{DoxyCompactList}\item 
+void \hyperlink{client_8h_a78c6ed6e74b3ce44da9950931b7d1381}{client\-\_\-destroy} (\hyperlink{structclient__t}{client\-\_\-t} $\ast$client)
+\begin{DoxyCompactList}\small\item\em client 객체를 삭제하기 위한 함수 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ \hyperlink{client_8h_a235b066d9cdf877a66409724e4334c76}{server\-\_\-ip} = \char`\"{}127.\-0.\-0.\-1\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{client_8h_ab377b2c7e1ef521373a74f4200644495}{\index{client.\-h@{client.\-h}!D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N@{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}}
+\index{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N@{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}!client.h@{client.\-h}}
+\subsubsection[{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N~1024}}\label{client_8h_ab377b2c7e1ef521373a74f4200644495}
+
+
+Definition at line 8 of file client.\-h.
+
+\hypertarget{client_8h_ac42367fe5c999ec6650de83e9d72fe8c}{\index{client.\-h@{client.\-h}!S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T@{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T}}
+\index{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T@{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T}!client.h@{client.\-h}}
+\subsubsection[{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T~5060}}\label{client_8h_ac42367fe5c999ec6650de83e9d72fe8c}
+
+
+Definition at line 9 of file client.\-h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{client_8h_a7bfebc8e763f36d1870198931d6b5eb1}{\index{client.\-h@{client.\-h}!client\-\_\-t@{client\-\_\-t}}
+\index{client\-\_\-t@{client\-\_\-t}!client.h@{client.\-h}}
+\subsubsection[{client\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf client\-\_\-s} {\bf client\-\_\-t}}}\label{client_8h_a7bfebc8e763f36d1870198931d6b5eb1}
+
+
+Definition at line 15 of file client.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{client_8h_a78c6ed6e74b3ce44da9950931b7d1381}{\index{client.\-h@{client.\-h}!client\-\_\-destroy@{client\-\_\-destroy}}
+\index{client\-\_\-destroy@{client\-\_\-destroy}!client.h@{client.\-h}}
+\subsubsection[{client\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void client\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf client\-\_\-t} $\ast$}]{client}
+\end{DoxyParamCaption}
+)}}\label{client_8h_a78c6ed6e74b3ce44da9950931b7d1381}
+
+
+client 객체를 삭제하기 위한 함수 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em client} & 삭제하기 위한 client 객체 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file client.\-c.
+
+\hypertarget{client_8h_af21475138048fb4203362940473e97ee}{\index{client.\-h@{client.\-h}!client\-\_\-init@{client\-\_\-init}}
+\index{client\-\_\-init@{client\-\_\-init}!client.h@{client.\-h}}
+\subsubsection[{client\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf client\-\_\-t}$\ast$ client\-\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{client_8h_af21475138048fb4203362940473e97ee}
+
+
+server 객체를 생성하고 초기화하는 함수 
+
+\begin{DoxyReturn}{Returns}
+생성된 server 객체 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file client.\-c.
+
+\hypertarget{client_8h_a80c8423080211619ad3d20311b5ced50}{\index{client.\-h@{client.\-h}!client\-\_\-process\-\_\-data@{client\-\_\-process\-\_\-data}}
+\index{client\-\_\-process\-\_\-data@{client\-\_\-process\-\_\-data}!client.h@{client.\-h}}
+\subsubsection[{client\-\_\-process\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void client\-\_\-process\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf client\-\_\-t} $\ast$}]{client}
+\end{DoxyParamCaption}
+)}}\label{client_8h_a80c8423080211619ad3d20311b5ced50}
+
+
+server 로 요청을 보내서 응답을 받는 함수 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em client} & 요청을 하기 위한 client 객체 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 67 of file client.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{client_8h_a235b066d9cdf877a66409724e4334c76}{\index{client.\-h@{client.\-h}!server\-\_\-ip@{server\-\_\-ip}}
+\index{server\-\_\-ip@{server\-\_\-ip}!client.h@{client.\-h}}
+\subsubsection[{server\-\_\-ip}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ server\-\_\-ip = \char`\"{}127.\-0.\-0.\-1\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{client_8h_a235b066d9cdf877a66409724e4334c76}
+
+
+Definition at line 11 of file client.\-h.
+

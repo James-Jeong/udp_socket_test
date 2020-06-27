@@ -1,0 +1,218 @@
+\hypertarget{server_8h}{\section{S\-E\-R\-V\-E\-R/server.h File Reference}
+\label{server_8h}\index{S\-E\-R\-V\-E\-R/server.\-h@{S\-E\-R\-V\-E\-R/server.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\-h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\-h$>$}\\*
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}jpool.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structserver__s}{server\-\_\-s}
+\item 
+struct \hyperlink{structdata__s}{data\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{server_8h_a96f589768663e2d9aae2e6d6fcc5ccf2}{T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}~500
+\item 
+\#define \hyperlink{server_8h_ab377b2c7e1ef521373a74f4200644495}{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}~1024
+\item 
+\#define \hyperlink{server_8h_ac42367fe5c999ec6650de83e9d72fe8c}{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T}~5060
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structserver__s}{server\-\_\-s} \hyperlink{server_8h_a0d46b4d18005bd6a95dddba0e65bddf6}{server\-\_\-t}
+\item 
+typedef struct \hyperlink{structdata__s}{data\-\_\-s} \hyperlink{server_8h_abc127153841754ee8b7845321721d7e7}{data\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structserver__t}{server\-\_\-t} $\ast$ \hyperlink{server_8h_aba0c531bc47ed0bcdc8e927b5e0ecc49}{server\-\_\-init} ()
+\begin{DoxyCompactList}\small\item\em server 객체를 생성하고 초기화하는 함수 \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a247d4c50ac76fb272765ba165fd5dba5}{server\-\_\-destroy} (\hyperlink{structserver__t}{server\-\_\-t} $\ast$server)
+\begin{DoxyCompactList}\small\item\em server 객체를 삭제하기 위한 함수 \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a8db20b420f9a6be743bdd3dd83120117}{server\-\_\-conn} (\hyperlink{structserver__t}{server\-\_\-t} $\ast$server)
+\begin{DoxyCompactList}\small\item\em client 와 연결되었을 때 데이터를 수신하고 데이터를 처리하기 위한 함수 \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_ae35812a40312be7d3e963100b59b1e55}{server\-\_\-process\-\_\-data} (void $\ast$data)
+\begin{DoxyCompactList}\small\item\em work 에서 사용될 데이터 처리 함수 \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a8ac0e08e5215ac9a54d9453febbb758d}{server\-\_\-wait} (\hyperlink{structserver__t}{server\-\_\-t} $\ast$server)
+\begin{DoxyCompactList}\small\item\em 동작 중인 thread 가 있는지 확인하는 함수 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const size\-\_\-t \hyperlink{server_8h_aacb5e749de60ad6c45c8c1f3e3472aa7}{thread\-\_\-num} = 10
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{server_8h_ab377b2c7e1ef521373a74f4200644495}{\index{server.\-h@{server.\-h}!D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N@{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}}
+\index{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N@{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}!server.h@{server.\-h}}
+\subsubsection[{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N~1024}}\label{server_8h_ab377b2c7e1ef521373a74f4200644495}
+
+
+Definition at line 16 of file server.\-h.
+
+\hypertarget{server_8h_ac42367fe5c999ec6650de83e9d72fe8c}{\index{server.\-h@{server.\-h}!S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T@{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T}}
+\index{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T@{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T}!server.h@{server.\-h}}
+\subsubsection[{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T~5060}}\label{server_8h_ac42367fe5c999ec6650de83e9d72fe8c}
+
+
+Definition at line 17 of file server.\-h.
+
+\hypertarget{server_8h_a96f589768663e2d9aae2e6d6fcc5ccf2}{\index{server.\-h@{server.\-h}!T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N@{T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}}
+\index{T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N@{T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}!server.h@{server.\-h}}
+\subsubsection[{T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N~500}}\label{server_8h_a96f589768663e2d9aae2e6d6fcc5ccf2}
+
+
+Definition at line 15 of file server.\-h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{server_8h_abc127153841754ee8b7845321721d7e7}{\index{server.\-h@{server.\-h}!data\-\_\-t@{data\-\_\-t}}
+\index{data\-\_\-t@{data\-\_\-t}!server.h@{server.\-h}}
+\subsubsection[{data\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf data\-\_\-s} {\bf data\-\_\-t}}}\label{server_8h_abc127153841754ee8b7845321721d7e7}
+
+
+Definition at line 36 of file server.\-h.
+
+\hypertarget{server_8h_a0d46b4d18005bd6a95dddba0e65bddf6}{\index{server.\-h@{server.\-h}!server\-\_\-t@{server\-\_\-t}}
+\index{server\-\_\-t@{server\-\_\-t}!server.h@{server.\-h}}
+\subsubsection[{server\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf server\-\_\-s} {\bf server\-\_\-t}}}\label{server_8h_a0d46b4d18005bd6a95dddba0e65bddf6}
+
+
+Definition at line 24 of file server.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{server_8h_a8db20b420f9a6be743bdd3dd83120117}{\index{server.\-h@{server.\-h}!server\-\_\-conn@{server\-\_\-conn}}
+\index{server\-\_\-conn@{server\-\_\-conn}!server.h@{server.\-h}}
+\subsubsection[{server\-\_\-conn}]{\setlength{\rightskip}{0pt plus 5cm}void server\-\_\-conn (
+\begin{DoxyParamCaption}
+\item[{{\bf server\-\_\-t} $\ast$}]{server}
+\end{DoxyParamCaption}
+)}}\label{server_8h_a8db20b420f9a6be743bdd3dd83120117}
+
+
+client 와 연결되었을 때 데이터를 수신하고 데이터를 처리하기 위한 함수 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em server} & 데이터 처리를 위한 server 객체 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 103 of file server.\-c.
+
+\hypertarget{server_8h_a247d4c50ac76fb272765ba165fd5dba5}{\index{server.\-h@{server.\-h}!server\-\_\-destroy@{server\-\_\-destroy}}
+\index{server\-\_\-destroy@{server\-\_\-destroy}!server.h@{server.\-h}}
+\subsubsection[{server\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void server\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf server\-\_\-t} $\ast$}]{server}
+\end{DoxyParamCaption}
+)}}\label{server_8h_a247d4c50ac76fb272765ba165fd5dba5}
+
+
+server 객체를 삭제하기 위한 함수 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em server} & 삭제하기 위한 server 객체 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 90 of file server.\-c.
+
+\hypertarget{server_8h_aba0c531bc47ed0bcdc8e927b5e0ecc49}{\index{server.\-h@{server.\-h}!server\-\_\-init@{server\-\_\-init}}
+\index{server\-\_\-init@{server\-\_\-init}!server.h@{server.\-h}}
+\subsubsection[{server\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf server\-\_\-t}$\ast$ server\-\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{server_8h_aba0c531bc47ed0bcdc8e927b5e0ecc49}
+
+
+server 객체를 생성하고 초기화하는 함수 
+
+\begin{DoxyReturn}{Returns}
+생성된 server 객체 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file server.\-c.
+
+\hypertarget{server_8h_ae35812a40312be7d3e963100b59b1e55}{\index{server.\-h@{server.\-h}!server\-\_\-process\-\_\-data@{server\-\_\-process\-\_\-data}}
+\index{server\-\_\-process\-\_\-data@{server\-\_\-process\-\_\-data}!server.h@{server.\-h}}
+\subsubsection[{server\-\_\-process\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void server\-\_\-process\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{server_8h_ae35812a40312be7d3e963100b59b1e55}
+
+
+work 에서 사용될 데이터 처리 함수 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & client 로 부터 수신한 데이터 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 147 of file server.\-c.
+
+\hypertarget{server_8h_a8ac0e08e5215ac9a54d9453febbb758d}{\index{server.\-h@{server.\-h}!server\-\_\-wait@{server\-\_\-wait}}
+\index{server\-\_\-wait@{server\-\_\-wait}!server.h@{server.\-h}}
+\subsubsection[{server\-\_\-wait}]{\setlength{\rightskip}{0pt plus 5cm}void server\-\_\-wait (
+\begin{DoxyParamCaption}
+\item[{{\bf server\-\_\-t} $\ast$}]{server}
+\end{DoxyParamCaption}
+)}}\label{server_8h_a8ac0e08e5215ac9a54d9453febbb758d}
+
+
+동작 중인 thread 가 있는지 확인하는 함수 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em server} & 확인에 사용될 server 객체 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 163 of file server.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{server_8h_aacb5e749de60ad6c45c8c1f3e3472aa7}{\index{server.\-h@{server.\-h}!thread\-\_\-num@{thread\-\_\-num}}
+\index{thread\-\_\-num@{thread\-\_\-num}!server.h@{server.\-h}}
+\subsubsection[{thread\-\_\-num}]{\setlength{\rightskip}{0pt plus 5cm}const size\-\_\-t thread\-\_\-num = 10\hspace{0.3cm}{\ttfamily [static]}}}\label{server_8h_aacb5e749de60ad6c45c8c1f3e3472aa7}
+
+
+Definition at line 19 of file server.\-h.
+

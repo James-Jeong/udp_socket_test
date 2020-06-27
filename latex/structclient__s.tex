@@ -10,6 +10,8 @@
 \item 
 int \hyperlink{structclient__s_a9babf0c4dea4b555e6b87a47f4ca98cd}{fd}
 \begin{DoxyCompactList}\small\item\em client udp socket file descriptor \end{DoxyCompactList}\item 
+int \hyperlink{structclient__s_aa10e2d632839fa347fd9835f8a41a694}{seq\-\_\-id}
+\begin{DoxyCompactList}\small\item\em client message sequence identifier \end{DoxyCompactList}\item 
 struct sockaddr\-\_\-in \hyperlink{structclient__s_a4cb8f28435762b205424d16ea39dcab3}{server\-\_\-addr}
 \begin{DoxyCompactList}\small\item\em server socket address \end{DoxyCompactList}\item 
 struct sockaddr\-\_\-in \hyperlink{structclient__s_a618e45173f1bb6920a8c9afe885e16be}{my\-\_\-addr}
@@ -19,7 +21,7 @@ struct sockaddr\-\_\-in \hyperlink{structclient__s_a618e45173f1bb6920a8c9afe885e
 \subsection{Detailed Description}
 
 
-Definition at line 16 of file client.\-h.
+Definition at line 17 of file client.\-h.
 
 
 
@@ -33,7 +35,7 @@ client udp socket file descriptor
 
 
 
-Definition at line 18 of file client.\-h.
+Definition at line 19 of file client.\-h.
 
 \hypertarget{structclient__s_a618e45173f1bb6920a8c9afe885e16be}{\index{client\-\_\-s@{client\-\_\-s}!my\-\_\-addr@{my\-\_\-addr}}
 \index{my\-\_\-addr@{my\-\_\-addr}!client_s@{client\-\_\-s}}
@@ -44,7 +46,18 @@ client socket address
 
 
 
-Definition at line 22 of file client.\-h.
+Definition at line 25 of file client.\-h.
+
+\hypertarget{structclient__s_aa10e2d632839fa347fd9835f8a41a694}{\index{client\-\_\-s@{client\-\_\-s}!seq\-\_\-id@{seq\-\_\-id}}
+\index{seq\-\_\-id@{seq\-\_\-id}!client_s@{client\-\_\-s}}
+\subsubsection[{seq\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int client\-\_\-s\-::seq\-\_\-id}}\label{structclient__s_aa10e2d632839fa347fd9835f8a41a694}
+
+
+client message sequence identifier 
+
+
+
+Definition at line 21 of file client.\-h.
 
 \hypertarget{structclient__s_a4cb8f28435762b205424d16ea39dcab3}{\index{client\-\_\-s@{client\-\_\-s}!server\-\_\-addr@{server\-\_\-addr}}
 \index{server\-\_\-addr@{server\-\_\-addr}!client_s@{client\-\_\-s}}
@@ -55,7 +68,7 @@ server socket address
 
 
 
-Definition at line 20 of file client.\-h.
+Definition at line 23 of file client.\-h.
 
 
 

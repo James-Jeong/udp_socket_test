@@ -42,7 +42,10 @@ client_t* client_init(){
 		return NULL;
 	}
 
+	client->seq_id = 0;
+
 	printf("        | @ Client : Success to create a object\n");
+	printf("        | @ Client : Welcome\n\n");
 	return client;
 }
 
@@ -56,6 +59,7 @@ void client_destroy( client_t *client){
 	close( client->fd);
 	free( client);
 	printf("        | @ Client : Success to destroy the object\n");
+	printf("        | @ Client : BYE\n\n");
 }
 
 /**
@@ -76,18 +80,34 @@ void client_process_data( client_t *client){
 		char msg[ DATA_MAX_LEN];
 		printf("        | @ Client : > ");
 		fgets( msg, DATA_MAX_LEN, stdin);
-		sprintf( send_buf, "%s", msg);
-		send_bytes = sendto( client->fd, send_buf, strlen( send_buf), 0, ( struct sockaddr*)( &client->server_addr), sizeof( client->server_addr));
-		printf("\n");
+		msg[ strlen( msg) - 1] = '\0';
+		snprintf( send_buf, DATA_MAX_LEN, "%s", msg);
 
-		if( !memcmp( send_buf, "q", 1)){
-			printf("        | @ Client : Finish\n");
-			break;
+		client->seq_id++;
+
+		jmp_t send_msg;
+		jmp_set_msg( &send_msg, client->seq_id, send_buf);
+		if( ( send_bytes = sendto( client->fd, &send_msg, sizeof( send_msg), 0, ( struct sockaddr*)( &client->server_addr), sizeof( client->server_addr))) <= 0){
+			printf("        | ! Client : Fail to send msg\n");
+			printf("        | ! Client data : [ %s ]\n\n", send_buf);
 		}
+		else{
+			if( !memcmp( send_buf, "q", 1)){
+				printf("        | @ Client : Finish\n");
+				break;
+			}
 
-		recv_bytes = recvfrom( client->fd, read_buf, DATA_MAX_LEN, 0, ( struct sockaddr*)( &client->server_addr), &server_addr_size);
-		read_buf[ recv_bytes] = '\0';
-		printf("        | @ Client : [ %s ] > %s (%lu bytes)\n", server_ip, read_buf, recv_bytes);
+			jmp_t recv_msg;
+			if( ( recv_bytes = recvfrom( client->fd, &recv_msg, sizeof( recv_msg), 0, ( struct sockaddr*)( &client->server_addr), &server_addr_size)) <= 0){
+				printf("        | ! Client : Fail to recv msg\n\n");
+			}
+			else{
+				jmp_print_msg( &recv_msg);
+				snprintf( read_buf, DATA_MAX_LEN, "%s", jmp_get_data( &recv_msg));
+				printf("        | @ Client : [ %s ] > %s (%lu bytes)\n", server_ip, read_buf, recv_bytes);
+			}
+		}
+		printf("\n");
 	}
 }
 

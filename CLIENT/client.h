@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include "../PROTOCOL/jmp.h"
 
 #define DATA_MAX_LEN 1024
 #define SERVER_PORT 5060
@@ -16,6 +17,8 @@ typedef struct client_s client_t;
 struct client_s{
 	/// client udp socket file descriptor
 	int fd;
+	/// client message sequence identifier
+	int seq_id;
 	/// server socket address
 	struct sockaddr_in server_addr;
 	/// client socket address

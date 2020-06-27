@@ -78,6 +78,7 @@ server_t* server_init(){
 	}
 
 	printf("	| @ Server : Success to create a object\n");
+	printf("	| @ Server : Welcome\n\n");
 	return server;
 }
 
@@ -92,6 +93,7 @@ void server_destroy( server_t *server){
 	close( server->fd);
 	free( server);
 	printf("	| @ Server : Success to destroy the object\n");
+	printf("	| @ Server : BYE\n\n");
 }
 
 /**
@@ -116,25 +118,26 @@ void server_conn( server_t *server){
 		int client_fd;
 		char read_buf[ DATA_MAX_LEN];
 
-		recv_bytes = recvfrom( server->fd, read_buf, DATA_MAX_LEN, 0, ( struct sockaddr*)( &client_addr), &addr_len);
-		read_buf[recv_bytes - 1] = '\0';
-
-		char *client_ip = inet_ntoa( client_addr.sin_addr);
-		if( strncmp( client_ip, "0.0.0.0", strlen( client_ip)) != 0){
-			printf("	| @ Server : connect with %s\n", client_ip);
+		jmp_t recv_msg;
+		if( ( recv_bytes = recvfrom( server->fd, &recv_msg, sizeof( recv_msg), 0, ( struct sockaddr*)( &client_addr), &addr_len)) <= 0){
+			printf("	| ! Server : Fail to recv msg\n\n");
 		}
+		else{
+			jmp_print_msg( &recv_msg);
+			snprintf( read_buf, DATA_MAX_LEN, "%s", jmp_get_data( &recv_msg));
 
-		printf("	| @ Server : [ %s ] > %s (%lu bytes)\n", client_ip, read_buf, recv_bytes);
-		printf("\n");
+			char *client_ip = inet_ntoa( client_addr.sin_addr);
+			printf("	| @ Server : [ %s ] > %s (%lu bytes)\n", client_ip, read_buf, recv_bytes);
 
-		if( !memcmp( read_buf, "q", 1)){
-			printf("	| @ Server : Finish\n");
-			break;
+			if( !memcmp( read_buf, "q", 1)){
+				printf("	| @ Server : Finish\n");
+				break;
+			}
+
+			data_t data;
+			data_init( &data, server, client_addr, ( void*)( read_buf));
+			jpool_add_work( server->jpool, server_process_data, &data);
 		}
-
-		data_t data;
-		data_init( &data, server, client_addr, ( void*)( read_buf));
-		jpool_add_work( server->jpool, server_process_data, &data);
 	}
 }
 
@@ -147,11 +150,19 @@ void server_conn( server_t *server){
 void server_process_data( void* data){
 	struct sockaddr_in client_addr = ( struct sockaddr_in)( ( ( data_t*)( data))->client_addr);
 	int server_fd = ( int)( ( ( data_t*)( data))->server_fd);
+
 	ssize_t send_bytes;
 	char send_buf[ DATA_MAX_LEN];
+	snprintf( send_buf, DATA_MAX_LEN, "%s", "OK");
 
-	sprintf( send_buf, "%s", "OK");
-	send_bytes = sendto( server_fd, send_buf, strlen( send_buf), 0, ( struct sockaddr*)( &client_addr), sizeof( client_addr));
+	jmp_t send_msg;
+	jmp_set_msg( &send_msg, 0, send_buf);
+
+	if( ( send_bytes = sendto( server_fd, &send_msg, sizeof( send_msg), 0, ( struct sockaddr*)( &client_addr), sizeof( client_addr))) <= 0){
+		printf("	| ! Server : Fail to send msg\n");
+		printf("	| ! Server data : [ %s ]\n", send_buf);
+		printf("	| ! Client ip : [ %s ]\n\n", inet_ntoa( client_addr.sin_addr));
+	}
 }
 
 /**

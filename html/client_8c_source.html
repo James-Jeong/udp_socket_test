@@ -121,50 +121,70 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    printf(<span class="stringliteral">&quot;        | @ Client : Success to create a object\n&quot;</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> client;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="client_8h.html#a78c6ed6e74b3ce44da9950931b7d1381">   55</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="client_8c.html#a78c6ed6e74b3ce44da9950931b7d1381">client_destroy</a>( <a class="code" href="structclient__t.html">client_t</a> *client){</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    close( client-&gt;fd);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    free( client);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    printf(<span class="stringliteral">&quot;        | @ Client : Success to destroy the object\n&quot;</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="client_8h.html#a80c8423080211619ad3d20311b5ced50">   67</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="client_8c.html#a80c8423080211619ad3d20311b5ced50">client_process_data</a>( <a class="code" href="structclient__t.html">client_t</a> *client){</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">int</span> server_addr_size = 0;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">char</span> read_buf[ <a class="code" href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a>];</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">char</span> send_buf[ <a class="code" href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a>];</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    ssize_t recv_bytes, send_bytes;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    printf(<span class="stringliteral">&quot;        | @ Client : put the data\n&quot;</span>);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">while</span>(1){</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        server_addr_size = <span class="keyword">sizeof</span>( client-&gt;server_addr);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">char</span> msg[ <a class="code" href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a>];</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        printf(<span class="stringliteral">&quot;        | @ Client : &gt; &quot;</span>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        fgets( msg, <a class="code" href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a>, stdin);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        sprintf( send_buf, <span class="stringliteral">&quot;%s&quot;</span>, msg);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        send_bytes = sendto( client-&gt;fd, send_buf, strlen( send_buf), 0, ( <span class="keyword">struct</span> sockaddr*)( &amp;client-&gt;server_addr), <span class="keyword">sizeof</span>( client-&gt;server_addr));</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span>( !memcmp( send_buf, <span class="stringliteral">&quot;q&quot;</span>, 1)){</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            printf(<span class="stringliteral">&quot;        | @ Client : Finish\n&quot;</span>);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    client-&gt;seq_id = 0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    printf(<span class="stringliteral">&quot;        | @ Client : Success to create a object\n&quot;</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    printf(<span class="stringliteral">&quot;        | @ Client : Welcome\n\n&quot;</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> client;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="client_8h.html#a78c6ed6e74b3ce44da9950931b7d1381">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="client_8c.html#a78c6ed6e74b3ce44da9950931b7d1381">client_destroy</a>( <a class="code" href="structclient__t.html">client_t</a> *client){</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    close( client-&gt;fd);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    free( client);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    printf(<span class="stringliteral">&quot;        | @ Client : Success to destroy the object\n&quot;</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    printf(<span class="stringliteral">&quot;        | @ Client : BYE\n\n&quot;</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="client_8h.html#a80c8423080211619ad3d20311b5ced50">   71</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="client_8c.html#a80c8423080211619ad3d20311b5ced50">client_process_data</a>( <a class="code" href="structclient__t.html">client_t</a> *client){</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">int</span> server_addr_size = 0;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">char</span> read_buf[ <a class="code" href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a>];</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">char</span> send_buf[ <a class="code" href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a>];</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    ssize_t recv_bytes, send_bytes;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    printf(<span class="stringliteral">&quot;        | @ Client : put the data\n&quot;</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">while</span>(1){</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        server_addr_size = <span class="keyword">sizeof</span>( client-&gt;server_addr);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">char</span> msg[ <a class="code" href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a>];</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        printf(<span class="stringliteral">&quot;        | @ Client : &gt; &quot;</span>);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        fgets( msg, <a class="code" href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a>, stdin);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        msg[ strlen( msg) - 1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        snprintf( send_buf, <a class="code" href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a>, <span class="stringliteral">&quot;%s&quot;</span>, msg);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        client-&gt;seq_id++;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        recv_bytes = recvfrom( client-&gt;fd, read_buf, <a class="code" href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a>, 0, ( <span class="keyword">struct</span> sockaddr*)( &amp;client-&gt;server_addr), &amp;server_addr_size);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        read_buf[ recv_bytes] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        printf(<span class="stringliteral">&quot;        | @ Client : [ %s ] &gt; %s (%lu bytes)\n&quot;</span>, <a class="code" href="client_8h.html#a235b066d9cdf877a66409724e4334c76">server_ip</a>, read_buf, recv_bytes);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        jmp_t send_msg;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        jmp_set_msg( &amp;send_msg, client-&gt;seq_id, send_buf);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">if</span>( ( send_bytes = sendto( client-&gt;fd, &amp;send_msg, <span class="keyword">sizeof</span>( send_msg), 0, ( <span class="keyword">struct</span> sockaddr*)( &amp;client-&gt;server_addr), <span class="keyword">sizeof</span>( client-&gt;server_addr))) &lt;= 0){</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            printf(<span class="stringliteral">&quot;        | ! Client : Fail to send msg\n&quot;</span>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            printf(<span class="stringliteral">&quot;        | ! Client data : [ %s ]\n\n&quot;</span>, send_buf);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">if</span>( !memcmp( send_buf, <span class="stringliteral">&quot;q&quot;</span>, 1)){</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                printf(<span class="stringliteral">&quot;        | @ Client : Finish\n&quot;</span>);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            jmp_t recv_msg;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">if</span>( ( recv_bytes = recvfrom( client-&gt;fd, &amp;recv_msg, <span class="keyword">sizeof</span>( recv_msg), 0, ( <span class="keyword">struct</span> sockaddr*)( &amp;client-&gt;server_addr), &amp;server_addr_size)) &lt;= 0){</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                printf(<span class="stringliteral">&quot;        | ! Client : Fail to recv msg\n\n&quot;</span>);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                jmp_print_msg( &amp;recv_msg);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                snprintf( read_buf, <a class="code" href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a>, <span class="stringliteral">&quot;%s&quot;</span>, jmp_get_data( &amp;recv_msg));</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                printf(<span class="stringliteral">&quot;        | @ Client : [ %s ] &gt; %s (%lu bytes)\n&quot;</span>, <a class="code" href="client_8h.html#a235b066d9cdf877a66409724e4334c76">server_ip</a>, read_buf, recv_bytes);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
 <div class="ttc" id="server_8c_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="server_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdoc">server 구동을 위한 main 함수 </div><div class="ttdef"><b>Definition:</b> <a href="server_8c_source.html#l00010">server.c:10</a></div></div>
-<div class="ttc" id="client_8c_html_a78c6ed6e74b3ce44da9950931b7d1381"><div class="ttname"><a href="client_8c.html#a78c6ed6e74b3ce44da9950931b7d1381">client_destroy</a></div><div class="ttdeci">void client_destroy(client_t *client)</div><div class="ttdoc">client 객체를 삭제하기 위한 함수 </div><div class="ttdef"><b>Definition:</b> <a href="client_8c_source.html#l00055">client.c:55</a></div></div>
-<div class="ttc" id="client_8c_html_a80c8423080211619ad3d20311b5ced50"><div class="ttname"><a href="client_8c.html#a80c8423080211619ad3d20311b5ced50">client_process_data</a></div><div class="ttdeci">void client_process_data(client_t *client)</div><div class="ttdoc">server 로 요청을 보내서 응답을 받는 함수 </div><div class="ttdef"><b>Definition:</b> <a href="client_8c_source.html#l00067">client.c:67</a></div></div>
-<div class="ttc" id="client_8h_html_a235b066d9cdf877a66409724e4334c76"><div class="ttname"><a href="client_8h.html#a235b066d9cdf877a66409724e4334c76">server_ip</a></div><div class="ttdeci">static const char * server_ip</div><div class="ttdef"><b>Definition:</b> <a href="client_8h_source.html#l00011">client.h:11</a></div></div>
-<div class="ttc" id="server_8h_html_ab377b2c7e1ef521373a74f4200644495"><div class="ttname"><a href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a></div><div class="ttdeci">#define DATA_MAX_LEN</div><div class="ttdef"><b>Definition:</b> <a href="server_8h_source.html#l00016">server.h:16</a></div></div>
+<div class="ttc" id="client_8c_html_a78c6ed6e74b3ce44da9950931b7d1381"><div class="ttname"><a href="client_8c.html#a78c6ed6e74b3ce44da9950931b7d1381">client_destroy</a></div><div class="ttdeci">void client_destroy(client_t *client)</div><div class="ttdoc">client 객체를 삭제하기 위한 함수 </div><div class="ttdef"><b>Definition:</b> <a href="client_8c_source.html#l00058">client.c:58</a></div></div>
+<div class="ttc" id="client_8c_html_a80c8423080211619ad3d20311b5ced50"><div class="ttname"><a href="client_8c.html#a80c8423080211619ad3d20311b5ced50">client_process_data</a></div><div class="ttdeci">void client_process_data(client_t *client)</div><div class="ttdoc">server 로 요청을 보내서 응답을 받는 함수 </div><div class="ttdef"><b>Definition:</b> <a href="client_8c_source.html#l00071">client.c:71</a></div></div>
+<div class="ttc" id="client_8h_html_a235b066d9cdf877a66409724e4334c76"><div class="ttname"><a href="client_8h.html#a235b066d9cdf877a66409724e4334c76">server_ip</a></div><div class="ttdeci">static const char * server_ip</div><div class="ttdef"><b>Definition:</b> <a href="client_8h_source.html#l00012">client.h:12</a></div></div>
+<div class="ttc" id="server_8h_html_ab377b2c7e1ef521373a74f4200644495"><div class="ttname"><a href="server_8h.html#ab377b2c7e1ef521373a74f4200644495">DATA_MAX_LEN</a></div><div class="ttdeci">#define DATA_MAX_LEN</div><div class="ttdef"><b>Definition:</b> <a href="server_8h_source.html#l00017">server.h:17</a></div></div>
 <div class="ttc" id="structclient__t_html"><div class="ttname"><a href="structclient__t.html">client_t</a></div><div class="ttdoc">server 로 요청을 보내서 응답을 받기위한 구조체 </div></div>
-<div class="ttc" id="server_8h_html_ac42367fe5c999ec6650de83e9d72fe8c"><div class="ttname"><a href="server_8h.html#ac42367fe5c999ec6650de83e9d72fe8c">SERVER_PORT</a></div><div class="ttdeci">#define SERVER_PORT</div><div class="ttdef"><b>Definition:</b> <a href="server_8h_source.html#l00017">server.h:17</a></div></div>
+<div class="ttc" id="server_8h_html_ac42367fe5c999ec6650de83e9d72fe8c"><div class="ttname"><a href="server_8h.html#ac42367fe5c999ec6650de83e9d72fe8c">SERVER_PORT</a></div><div class="ttdeci">#define SERVER_PORT</div><div class="ttdef"><b>Definition:</b> <a href="server_8h_source.html#l00018">server.h:18</a></div></div>
 <div class="ttc" id="client_8h_html"><div class="ttname"><a href="client_8h.html">client.h</a></div></div>
 <div class="ttc" id="client_8c_html_a79115ea669ab14277ada1fc054ad01bf"><div class="ttname"><a href="client_8c.html#a79115ea669ab14277ada1fc054ad01bf">client_init</a></div><div class="ttdeci">client_t * client_init()</div><div class="ttdoc">server 객체를 생성하고 초기화하는 함수 </div><div class="ttdef"><b>Definition:</b> <a href="client_8c_source.html#l00032">client.c:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

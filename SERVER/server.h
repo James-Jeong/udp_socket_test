@@ -11,6 +11,7 @@
 #include <pthread.h>
 #include <signal.h>
 #include "jpool.h"
+#include "../PROTOCOL/jmp.h"
 
 #define TH_MAX_LEN 500
 #define DATA_MAX_LEN 1024

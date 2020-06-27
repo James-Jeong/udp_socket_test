@@ -11,6 +11,7 @@
 {\ttfamily \#include $<$pthread.\-h$>$}\\*
 {\ttfamily \#include $<$signal.\-h$>$}\\*
 {\ttfamily \#include \char`\"{}jpool.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../\-P\-R\-O\-T\-O\-C\-O\-L/jmp.\-h\char`\"{}}\\*
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,21 +61,21 @@ static const size\-\_\-t \hyperlink{server_8h_aacb5e749de60ad6c45c8c1f3e3472aa7}
 \subsubsection[{D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N~1024}}\label{server_8h_ab377b2c7e1ef521373a74f4200644495}
 
 
-Definition at line 16 of file server.\-h.
+Definition at line 17 of file server.\-h.
 
 \hypertarget{server_8h_ac42367fe5c999ec6650de83e9d72fe8c}{\index{server.\-h@{server.\-h}!S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T@{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T}}
 \index{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T@{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T}!server.h@{server.\-h}}
 \subsubsection[{S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-R\-V\-E\-R\-\_\-\-P\-O\-R\-T~5060}}\label{server_8h_ac42367fe5c999ec6650de83e9d72fe8c}
 
 
-Definition at line 17 of file server.\-h.
+Definition at line 18 of file server.\-h.
 
 \hypertarget{server_8h_a96f589768663e2d9aae2e6d6fcc5ccf2}{\index{server.\-h@{server.\-h}!T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N@{T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}}
 \index{T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N@{T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}!server.h@{server.\-h}}
 \subsubsection[{T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-H\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N~500}}\label{server_8h_a96f589768663e2d9aae2e6d6fcc5ccf2}
 
 
-Definition at line 15 of file server.\-h.
+Definition at line 16 of file server.\-h.
 
 
 
@@ -84,14 +85,14 @@ Definition at line 15 of file server.\-h.
 \subsubsection[{data\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf data\-\_\-s} {\bf data\-\_\-t}}}\label{server_8h_abc127153841754ee8b7845321721d7e7}
 
 
-Definition at line 36 of file server.\-h.
+Definition at line 37 of file server.\-h.
 
 \hypertarget{server_8h_a0d46b4d18005bd6a95dddba0e65bddf6}{\index{server.\-h@{server.\-h}!server\-\_\-t@{server\-\_\-t}}
 \index{server\-\_\-t@{server\-\_\-t}!server.h@{server.\-h}}
 \subsubsection[{server\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf server\-\_\-s} {\bf server\-\_\-t}}}\label{server_8h_a0d46b4d18005bd6a95dddba0e65bddf6}
 
 
-Definition at line 24 of file server.\-h.
+Definition at line 25 of file server.\-h.
 
 
 
@@ -117,7 +118,7 @@ void
 \end{DoxyParams}
 
 
-Definition at line 103 of file server.\-c.
+Definition at line 105 of file server.\-c.
 
 \hypertarget{server_8h_a247d4c50ac76fb272765ba165fd5dba5}{\index{server.\-h@{server.\-h}!server\-\_\-destroy@{server\-\_\-destroy}}
 \index{server\-\_\-destroy@{server\-\_\-destroy}!server.h@{server.\-h}}
@@ -140,7 +141,7 @@ void
 \end{DoxyParams}
 
 
-Definition at line 90 of file server.\-c.
+Definition at line 91 of file server.\-c.
 
 \hypertarget{server_8h_aba0c531bc47ed0bcdc8e927b5e0ecc49}{\index{server.\-h@{server.\-h}!server\-\_\-init@{server\-\_\-init}}
 \index{server\-\_\-init@{server\-\_\-init}!server.h@{server.\-h}}
@@ -181,7 +182,7 @@ void
 \end{DoxyParams}
 
 
-Definition at line 147 of file server.\-c.
+Definition at line 150 of file server.\-c.
 
 \hypertarget{server_8h_a8ac0e08e5215ac9a54d9453febbb758d}{\index{server.\-h@{server.\-h}!server\-\_\-wait@{server\-\_\-wait}}
 \index{server\-\_\-wait@{server\-\_\-wait}!server.h@{server.\-h}}
@@ -204,7 +205,7 @@ void
 \end{DoxyParams}
 
 
-Definition at line 163 of file server.\-c.
+Definition at line 174 of file server.\-c.
 
 
 
@@ -214,5 +215,5 @@ Definition at line 163 of file server.\-c.
 \subsubsection[{thread\-\_\-num}]{\setlength{\rightskip}{0pt plus 5cm}const size\-\_\-t thread\-\_\-num = 10\hspace{0.3cm}{\ttfamily [static]}}}\label{server_8h_aacb5e749de60ad6c45c8c1f3e3472aa7}
 
 
-Definition at line 19 of file server.\-h.
+Definition at line 20 of file server.\-h.
 

@@ -1,0 +1,24 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+DATA_MAX_LEN	jmp.h	/^#define DATA_MAX_LEN /;"	d
+__JMP_H__	jmp.h	/^#define __JMP_H__$/;"	d
+data	jmp.h	/^	char data[ DATA_MAX_LEN];$/;"	m	struct:jmp_s
+data_len	jmp.h	/^	int data_len;$/;"	m	struct:jmp_hd_s
+hd	jmp.h	/^	jmp_hd_t hd;$/;"	m	struct:jmp_s
+jmp_destroy	jmp.c	/^void jmp_destroy( jmp_t* msg){$/;"	f
+jmp_get_data	jmp.c	/^char* jmp_get_data( jmp_t* msg){$/;"	f
+jmp_get_data_len	jmp.c	/^int jmp_get_data_len( jmp_t* msg){$/;"	f
+jmp_get_data_size	jmp.c	/^int jmp_get_data_size(){$/;"	f
+jmp_hd_s	jmp.h	/^struct jmp_hd_s{$/;"	s
+jmp_hd_t	jmp.h	/^typedef struct jmp_hd_s jmp_hd_t;$/;"	t	typeref:struct:jmp_hd_s
+jmp_init	jmp.c	/^jmp_t* jmp_init(){$/;"	f
+jmp_print_msg	jmp.c	/^void jmp_print_msg( jmp_t *msg){$/;"	f
+jmp_s	jmp.h	/^struct jmp_s{$/;"	s
+jmp_set_msg	jmp.c	/^int jmp_set_msg( jmp_t *msg, uint32_t seq_id, char *data){$/;"	f
+jmp_t	jmp.h	/^typedef struct jmp_s jmp_t;$/;"	t	typeref:struct:jmp_s
+seq_id	jmp.h	/^	uint32_t seq_id;$/;"	m	struct:jmp_hd_s
+ushort	jmp.h	/^typedef unsigned short ushort;$/;"	t

@@ -1,0 +1,19 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+DATA_MAX_LEN	client.h	/^#define DATA_MAX_LEN /;"	d
+SERVER_PORT	client.h	/^#define SERVER_PORT /;"	d
+client_destroy	client.c	/^void client_destroy( client_t *client){$/;"	f
+client_init	client.c	/^client_t* client_init(){$/;"	f
+client_process_data	client.c	/^void client_process_data( client_t *client){$/;"	f
+client_s	client.h	/^struct client_s{$/;"	s
+client_t	client.h	/^typedef struct client_s client_t;$/;"	t	typeref:struct:client_s
+fd	client.h	/^	int fd;$/;"	m	struct:client_s
+main	client.c	/^int main( int argc, char **argv){$/;"	f
+my_addr	client.h	/^	struct sockaddr_in my_addr;$/;"	m	struct:client_s	typeref:struct:client_s::sockaddr_in
+seq_id	client.h	/^	int seq_id;$/;"	m	struct:client_s
+server_addr	client.h	/^	struct sockaddr_in server_addr;$/;"	m	struct:client_s	typeref:struct:client_s::sockaddr_in
+server_ip	client.h	/^static const char *server_ip = "127.0.0.1";$/;"	v

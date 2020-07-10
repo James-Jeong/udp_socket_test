@@ -1,0 +1,53 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+DATA_MAX_LEN	server.h	/^#define DATA_MAX_LEN /;"	d
+SERVER_PORT	server.h	/^#define SERVER_PORT /;"	d
+TH_MAX_LEN	server.h	/^#define TH_MAX_LEN /;"	d
+__JPOOL_H__	jpool.h	/^#define __JPOOL_H__$/;"	d
+__SERVER_H__	server.h	/^#define __SERVER_H__$/;"	d
+addr	server.h	/^	struct sockaddr_in addr;$/;"	m	struct:server_s	typeref:struct:server_s::sockaddr_in
+arg	jpool.h	/^	void *arg;$/;"	m	struct:jpool_work_s
+arg	server.h	/^	void *arg;$/;"	m	struct:data_s
+client_addr	server.h	/^	struct sockaddr_in client_addr;$/;"	m	struct:data_s	typeref:struct:data_s::sockaddr_in
+data_init	server.c	/^static void data_init( data_t *data, server_t *server, struct sockaddr_in client_addr, void *arg){$/;"	f	file:
+data_s	server.h	/^struct data_s{$/;"	s
+data_t	server.h	/^typedef struct data_s data_t;$/;"	t	typeref:struct:data_s
+fd	server.h	/^	int fd;$/;"	m	struct:server_s
+func	jpool.h	/^	func_pointer func;$/;"	m	struct:jpool_work_s
+func_pointer	jpool.h	/^typedef void ( *func_pointer) ( void *arg);$/;"	t
+jpool	server.h	/^	jpool_t *jpool;$/;"	m	struct:server_s
+jpool_add_work	jpool.c	/^bool jpool_add_work( jpool_t *jpool, func_pointer func, void *arg){$/;"	f
+jpool_destroy	jpool.c	/^void jpool_destroy( jpool_t *jpool){$/;"	f
+jpool_init	jpool.c	/^jpool_t* jpool_init( size_t num){$/;"	f
+jpool_s	jpool.h	/^struct jpool_s{$/;"	s
+jpool_t	jpool.h	/^typedef struct jpool_s jpool_t;$/;"	t	typeref:struct:jpool_s
+jpool_wait	jpool.c	/^void jpool_wait( jpool_t *jpool){$/;"	f
+jpool_work_destroy	jpool.c	/^static void jpool_work_destroy( jpool_work_t *work){$/;"	f	file:
+jpool_work_get	jpool.c	/^static jpool_work_t* jpool_work_get( jpool_t *jpool){$/;"	f	file:
+jpool_work_init	jpool.c	/^static jpool_work_t *jpool_work_init( func_pointer func, void *arg){$/;"	f	file:
+jpool_work_s	jpool.h	/^struct jpool_work_s {$/;"	s
+jpool_work_t	jpool.h	/^typedef struct jpool_work_s jpool_work_t;$/;"	t	typeref:struct:jpool_work_s
+jpool_worker	jpool.c	/^static void *jpool_worker( void *arg){$/;"	f	file:
+main	server.c	/^int main( int argc, char **argv){$/;"	f
+next	jpool.h	/^	struct jpool_work_s *next;$/;"	m	struct:jpool_work_s	typeref:struct:jpool_work_s::jpool_work_s
+server_conn	server.c	/^void server_conn( server_t *server){$/;"	f
+server_destroy	server.c	/^void server_destroy( server_t *server){$/;"	f
+server_fd	server.h	/^	int server_fd;$/;"	m	struct:data_s
+server_init	server.c	/^server_t* server_init(){$/;"	f
+server_process_data	server.c	/^void server_process_data( void* data){$/;"	f
+server_s	server.h	/^struct server_s{$/;"	s
+server_t	server.h	/^typedef struct server_s server_t;$/;"	t	typeref:struct:server_s
+server_wait	server.c	/^void server_wait( server_t *server){$/;"	f
+stop	jpool.h	/^	bool stop;$/;"	m	struct:jpool_s
+thread_cnt	jpool.h	/^	size_t thread_cnt;$/;"	m	struct:jpool_s
+thread_num	server.h	/^static const size_t thread_num = 10;$/;"	v
+work_cond	jpool.h	/^	pthread_cond_t work_cond;$/;"	m	struct:jpool_s
+work_first	jpool.h	/^	jpool_work_t *work_first;$/;"	m	struct:jpool_s
+work_last	jpool.h	/^	jpool_work_t *work_last;$/;"	m	struct:jpool_s
+work_mutex	jpool.h	/^	pthread_mutex_t work_mutex;$/;"	m	struct:jpool_s
+working_cnt	jpool.h	/^	size_t working_cnt;$/;"	m	struct:jpool_s
+working_cond	jpool.h	/^	pthread_cond_t working_cond;$/;"	m	struct:jpool_s

@@ -14,6 +14,7 @@ int main( int argc, char **argv){
 	//	}
 
 	client_t *client = client_init();
+	if(client == NULL) return -1;
 
 	client_process_data( client);
 
@@ -31,6 +32,7 @@ int main( int argc, char **argv){
  */
 client_t* client_init(){
 	client_t *client = ( client_t*)( malloc( sizeof( client_t)));
+	if(client == NULL) return NULL;
 
 	memset( &client->server_addr, 0, sizeof( client->server_addr));
 	client->server_addr.sin_family = AF_INET;
@@ -56,6 +58,7 @@ client_t* client_init(){
  * @param client 삭제하기 위한 client 객체
  */
 void client_destroy( client_t *client){
+	if(client == NULL) return NULL;
 	close( client->fd);
 	free( client);
 	printf("        | @ Client : Success to destroy the object\n");
@@ -69,6 +72,8 @@ void client_destroy( client_t *client){
  * @param client 요청을 하기 위한 client 객체
  */
 void client_process_data( client_t *client){
+	if(client == NULL) return NULL;
+	
 	int server_addr_size = 0;
 	char read_buf[ DATA_MAX_LEN];
 	char send_buf[ DATA_MAX_LEN];

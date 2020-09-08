@@ -46,7 +46,7 @@ struct data_s{
 };
 
 server_t* server_init();
-void server_destroy( server_t *server);
+void server_destroy( server_t **server);
 
 void server_conn( server_t *server);
 void server_process_data( void *data);

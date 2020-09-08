@@ -18,7 +18,7 @@ int main( int argc, char **argv){
 
 	client_process_data( client);
 
-	client_destroy( client);
+	client_destroy( &client);
 }
 
 
@@ -57,10 +57,11 @@ client_t* client_init(){
  * @return void
  * @param client 삭제하기 위한 client 객체
  */
-void client_destroy( client_t *client){
-	if(client == NULL) return NULL;
-	close( client->fd);
-	free( client);
+void client_destroy( client_t **client){
+	if(*client == NULL) return NULL;
+	close( (*client)->fd);
+	free( *client);
+	*client = NULL;
 	printf("        | @ Client : Success to destroy the object\n");
 	printf("        | @ Client : BYE\n\n");
 }

@@ -46,7 +46,7 @@ struct jpool_s{
 
 
 jpool_t *jpool_init( size_t num);
-void jpool_destroy( jpool_t *jpool);
+void jpool_destroy( jpool_t **jpool);
 
 bool jpool_add_work( jpool_t *jpool, func_pointer func, void *arg);
 void jpool_wait( jpool_t *jpool);

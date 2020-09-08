@@ -52,6 +52,8 @@ int main( int argc, char **argv){
  * @param arg client 로 부터 수신한 데이터
  */
 static void data_init( data_t *data, server_t *server, struct sockaddr_in client_addr, void *arg){
+	if(server == NULL) return;
+	
 	data->server_fd = server->fd;
 	data->client_addr = client_addr;
 	data->arg = arg;
@@ -64,7 +66,8 @@ static void data_init( data_t *data, server_t *server, struct sockaddr_in client
  */
 server_t* server_init(){
 	server_t *server = ( server_t*)malloc( sizeof( server_t));
-
+	if(server == NULL) return NULL;
+	
 	memset( &server->addr, 0, sizeof( struct sockaddr));
 	server->addr.sin_family = AF_INET;
 	server->addr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -102,6 +105,8 @@ server_t* server_init(){
  * @param server 삭제하기 위한 server 객체
  */
 void server_destroy( server_t *server){
+	if(server == NULL) return;
+	
 	jpool_destroy( server->jpool);
 	close( server->fd);
 	free( server);
@@ -116,6 +121,8 @@ void server_destroy( server_t *server){
  * @param server 데이터 처리를 위한 server 객체
  */
 void server_conn( server_t *server){
+	if(server == NULL) return;
+	
 	if( server->fd <= 0){
 		printf("	| ! Server : fd error\n");
 		return;
@@ -164,6 +171,8 @@ void server_conn( server_t *server){
  * @param data client 로 부터 수신한 데이터
  */
 void server_process_data( void* data){
+	if(data == NULL) return;
+	
 	struct sockaddr_in client_addr = ( struct sockaddr_in)( ( ( data_t*)( data))->client_addr);
 	int server_fd = ( int)( ( ( data_t*)( data))->server_fd);
 
@@ -188,6 +197,8 @@ void server_process_data( void* data){
  * @param server 확인에 사용될 server 객체
  */
 void server_wait( server_t *server){
+	if(server == NULL) return;
+	
 	jpool_wait( server->jpool);
 }
 

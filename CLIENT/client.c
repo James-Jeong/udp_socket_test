@@ -58,7 +58,7 @@ client_t* client_init(){
  * @param client 삭제하기 위한 client 객체
  */
 void client_destroy( client_t **client){
-	if(*client == NULL) return NULL;
+	if(*client == NULL) return;
 	close( (*client)->fd);
 	free( *client);
 	*client = NULL;
@@ -73,7 +73,7 @@ void client_destroy( client_t **client){
  * @param client 요청을 하기 위한 client 객체
  */
 void client_process_data( client_t *client){
-	if(client == NULL) return NULL;
+	if(client == NULL) return;
 	
 	int server_addr_size = 0;
 	char read_buf[ DATA_MAX_LEN];

@@ -7,6 +7,9 @@
  */
 jmp_t* jmp_init(){
 	jmp_t* msg = ( jmp_t*)malloc(sizeof( jmp_t));
+	if(msg == NULL){
+		return NULL;
+	}
 	memset( msg->data, 0, sizeof( msg->data));
 	return msg;
 }
@@ -18,6 +21,9 @@ jmp_t* jmp_init(){
  * @param msg 삭제할 프로토콜 객체
  */
 void jmp_destroy( jmp_t* msg){
+	if(msg == NULL){
+		return NULL;
+	}
 	memset( msg->data, 0, jmp_get_data_len( msg));
 	free( msg);
 }
@@ -29,6 +35,9 @@ void jmp_destroy( jmp_t* msg){
  * @param msg 소유한 데이터 길이를 알고자하는 메시지 객체
  */
 int jmp_get_data_len( jmp_t* msg){
+	if(msg == NULL){
+		return NULL;
+	}
 	return strlen( msg->data);
 }
 
@@ -49,6 +58,9 @@ int jmp_get_data_size(){
  * @param msg 소유한 데이터를 알고자하는 메시지 객체
  */
 char* jmp_get_data( jmp_t* msg){
+	if(msg == NULL){
+		return NULL;
+	}
 	return msg->data;
 }
 
@@ -61,6 +73,10 @@ char* jmp_get_data( jmp_t* msg){
  * @param data 설정하려고 하는 메시지 바디 데이터
  */
 int jmp_set_msg( jmp_t *msg, uint32_t seq_id, char *data){
+	if(msg == NULL){
+		return NULL;
+	}
+	
 	if( data != NULL){
 		int len = strlen( data);
 		memset( msg->data, 0, DATA_MAX_LEN);
@@ -93,4 +109,3 @@ void jmp_print_msg( jmp_t *msg){
 	printf("----- msg body -----\n");
 	printf("| msg data : %s\n\n", msg->data);
 }
-

@@ -35,7 +35,7 @@ int main( int argc, char **argv){
 	server_conn( server);
 	server_wait( server);
 
-	server_destroy( server);
+	server_destroy( &server);
 }
 
 
@@ -99,17 +99,18 @@ server_t* server_init(){
 }
 
 /**
- * @fn void server_destroy( server_t *server)
+ * @fn void server_destroy( server_t **server)
  * @brief server 객체를 삭제하기 위한 함수
  * @return void
  * @param server 삭제하기 위한 server 객체
  */
-void server_destroy( server_t *server){
-	if(server == NULL) return;
+void server_destroy( server_t **server){
+	if(*server == NULL) return;
 	
-	jpool_destroy( server->jpool);
-	close( server->fd);
-	free( server);
+	jpool_destroy( (*server)->jpool);
+	close( (*server)->fd);
+	free( *server);
+	*server = NULL;
 	printf("	| @ Server : Success to destroy the object\n");
 	printf("	| @ Server : BYE\n\n");
 }

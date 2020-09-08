@@ -8,6 +8,8 @@
  * @param arg 실행할 함수에 사용될 매개변수
  */
 static jpool_work_t *jpool_work_init( func_pointer func, void *arg){
+	if(arg == NULL) return NULL;
+	
 	if ( func == NULL){
 		return NULL;
 	}
@@ -40,6 +42,8 @@ static void jpool_work_destroy( jpool_work_t *work){
  * @param jpool work 를 가져올 쓰레드 풀 객체
  */
 static jpool_work_t* jpool_work_get( jpool_t *jpool){
+	if(jpool == NULL) return NULL;
+	
 	jpool_work_t *work;
 
 	if( jpool == NULL){
@@ -69,6 +73,8 @@ static jpool_work_t* jpool_work_get( jpool_t *jpool){
  * @param arg work 가진 함수에 사용될 매개변수
  */
 static void *jpool_worker( void *arg){
+	if(arg == NULL) return NULL;
+	
 	jpool_t *jpool = arg;
 	jpool_work_t *work;
 
@@ -118,6 +124,8 @@ static void *jpool_worker( void *arg){
  * @param num 생성될 쓰레드 개수
  */
 jpool_t* jpool_init( size_t num){
+	if(num < 0) return NULL;
+	
 	jpool_t *jpool;
 	pthread_t thread;
 	size_t i;
@@ -176,33 +184,34 @@ jpool_t* jpool_init( size_t num){
  * @return void
  * @param jpool 삭제될 thread pool 객체
  */
-void jpool_destroy( jpool_t *jpool){
-	if(jpool == NULL){
+void jpool_destroy( jpool_t **jpool){
+	if(*jpool == NULL){
 		return;
 	}
 
 	jpool_work_t *work;
 	jpool_work_t *work_temp;
 
-	pthread_mutex_lock( &( jpool->work_mutex));
-	work = jpool->work_first;
+	pthread_mutex_lock( &( (*jpool)->work_mutex));
+	work = (*jpool)->work_first;
 	while( work != NULL) {
 		work_temp = work->next;
 		jpool_work_destroy( work);
 		work = work_temp;
 	}
 
-	jpool->stop = true;
-	pthread_cond_broadcast( &( jpool->work_cond));
-	pthread_mutex_unlock( &( jpool->work_mutex));
+	(*jpool)->stop = true;
+	pthread_cond_broadcast( &( (*jpool)->work_cond));
+	pthread_mutex_unlock( &( (*jpool)->work_mutex));
 
 	jpool_wait( jpool);
 
-	pthread_mutex_destroy( &( jpool->work_mutex));
-	pthread_cond_destroy( &( jpool->work_cond));
-	pthread_cond_destroy( &( jpool->working_cond));
+	pthread_mutex_destroy( &( (*jpool)->work_mutex));
+	pthread_cond_destroy( &( (*jpool)->work_cond));
+	pthread_cond_destroy( &( (*jpool)->working_cond));
 
-	free( jpool);
+	free( *jpool);
+	*jpool = NULL;
 }
 
 /**
@@ -215,6 +224,10 @@ void jpool_destroy( jpool_t *jpool){
  */
 bool jpool_add_work( jpool_t *jpool, func_pointer func, void *arg){
 	if( jpool == NULL){
+		return false;
+	}
+	
+	if( arg == NULL){
 		return false;
 	}
 

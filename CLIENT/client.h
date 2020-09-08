@@ -27,5 +27,5 @@ struct client_s{
 
 client_t* client_init();
 void client_process_data( client_t *client);
-void client_destroy( client_t *client);
+void client_destroy( client_t **client);
 

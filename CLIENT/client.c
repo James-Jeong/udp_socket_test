@@ -52,7 +52,7 @@ client_t* client_init(){
 }
 
 /**
- * @fn void client_destroy( client_t *client)
+ * @fn void client_destroy( client_t **client)
  * @brief client 객체를 삭제하기 위한 함수
  * @return void
  * @param client 삭제하기 위한 client 객체
